@@ -1,28 +1,31 @@
-    name: Deploy to GitHub Pages
-    
-    on:
-    push:
-    branches: [main]
-    workflow_dispatch:
-    
-    permissions:
-    contents: read
-   pages: write
-   id-token: write
-   
-   jobs:
-   build:
-   runs-on: ubuntu-latest
-   steps:
-   - name: Checkout your repository using git
-   uses: actions/checkout@v4
-   - name: Install, build, and upload your site
-   uses: withastro/action@v3
-   
-   deploy:
-   needs: build
-   runs-on: ubuntu-latest
-   environment:
-   name: github-pages
-   url: ${{ steps.deployment.outputs.page_url }}
-   steps:
+ 1 name: Deploy to GitHub Pages
+    2
+    3 on:
+    4   push:
+    5     branches: [main]
+    6   workflow_dispatch:
+    7
+    8 permissions:
+    9   contents: read
+   10   pages: write
+   11   id-token: write
+   12
+   13 jobs:
+   14   build:
+   15     runs-on: ubuntu-latest
+   16     steps:
+   17       - name: Checkout your repository using git
+   18         uses: actions/checkout@v4
+   19       - name: Install, build, and upload your site
+   20         uses: withastro/action@v3
+   21
+   22   deploy:
+   23     needs: build
+   24     runs-on: ubuntu-latest
+   25     environment:
+   26       name: github-pages
+   27       url: ${{ steps.deployment.outputs.page_url }}
+   28     steps:
+   29       - name: Deploy to GitHub Pages
+   30         id: deployment
+   31         uses: actions/deploy-pages@v4

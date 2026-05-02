@@ -1,5 +1,7 @@
 # 🏝️ 99event.co — Discover the Real Phuket
 
+**Live Site:** [https://saikaew-pom.github.io/99phukettravel/](https://saikaew-pom.github.io/99phukettravel/)
+
 **99event.co** is a modern, high-performance travel authority site dedicated to uncovering the authentic side of Phuket, Thailand. Built with a focus on local expertise, editorial-quality content, and interactive utility.
 
 ---

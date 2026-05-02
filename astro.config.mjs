@@ -8,7 +8,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://99event.co',
+  site: 'https://saikaew-pom.github.io',
+  base: '/99phukettravel',
   integrations: [react(), mdx(), sitemap()],
 
   vite: {

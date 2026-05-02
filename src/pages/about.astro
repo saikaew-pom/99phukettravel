@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SEOhead from '../components/SEOhead';
+import AuthorBox from '../components/AuthorBox';
+
+const title = "About Us | 99event.co";
+const description = "Learn about the mission behind 99event.co and meet the local experts dedicated to sharing the authentic side of Phuket.";
+---
+
+<BaseLayout title={title} description={description} maxWidth="max-w-4xl">
+	<SEOhead 
+		slot="head" 
+		title={title} 
+		description={description} 
+		canonicalUrl="https://99event.co/about"
+		type="website"
+	/>
+
+	<div class="space-y-16">
+		{/* Hero Section */}
+		<section class="text-center pt-8">
+			<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+				We live for <span class="italic font-serif">Discovery</span>.
+			</h1>
+			<p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+				99event.co was born out of a simple realization: the real magic of Phuket isn't found in the brochures, but in the stories of its people and the secrets of its shores.
+			</p>
+		</section>
+
+		{/* Image Grid */}
+		<div class="grid grid-cols-2 gap-4 h-[400px]">
+			<div class="rounded-3xl overflow-hidden bg-gray-100 h-full">
+				<img 
+					src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=1000" 
+					alt="Phuket Local Market" 
+					class="w-full h-full object-cover"
+				/>
+			</div>
+			<div class="grid grid-rows-2 gap-4 h-full">
+				<div class="rounded-3xl overflow-hidden bg-gray-100">
+					<img 
+						src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=600" 
+						alt="Phuket Sunset" 
+						class="w-full h-full object-cover"
+					/>
+				</div>
+				<div class="rounded-3xl overflow-hidden bg-gray-100">
+					<img 
+						src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&q=80&w=600" 
+						alt="Hidden Beach" 
+						class="w-full h-full object-cover"
+					/>
+				</div>
+			</div>
+		</div>
+
+		{/* Our Mission */}
+		<section class="prose prose-lg prose-blue max-w-none">
+			<h2 class="text-3xl font-bold tracking-tight text-black">Our Mission</h2>
+			<p>
+				In a world of mass tourism, it’s easy to miss the soul of a destination. Phuket is one of the most visited islands on Earth, yet so few travelers ever see the ancient temples of the north, taste the authentic street food of Phuket Town, or find the coves that remain untouched by jet skis.
+			</p>
+			<p>
+				<strong>99event.co</strong> is dedicated to bridging that gap. We provide high-quality, long-form guides and interactive tools designed to help you navigate Phuket with the confidence of a local.
+			</p>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-12 not-prose">
+				<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+					<div class="text-2xl mb-3">📍</div>
+					<h4 class="font-bold mb-2">Local Accuracy</h4>
+					<p class="text-sm text-gray-500 leading-relaxed">Every guide is written by residents who live, eat, and breathe the Phuket lifestyle.</p>
+				</div>
+				<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+					<div class="text-2xl mb-3">🌿</div>
+					<h4 class="font-bold mb-2">Ethical Travel</h4>
+					<p class="text-sm text-gray-500 leading-relaxed">We prioritize sustainable tourism and ethical interactions with wildlife and culture.</p>
+				</div>
+				<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+					<div class="text-2xl mb-3">🛠️</div>
+					<h4 class="font-bold mb-2">Smart Tools</h4>
+					<p class="text-sm text-gray-500 leading-relaxed">Our interactive visa and budget tools take the guesswork out of travel planning.</p>
+				</div>
+			</div>
+
+			<h2 class="text-3xl font-bold tracking-tight text-black">The Voice Behind the Guide</h2>
+			<p>
+				Our lead editor, Gemini Phuket, has spent over a decade documenting the evolution of the Andaman Sea. From the bustling streets of Patong to the quietest corners of Mai Khao, the goal remains the same: to tell the truth about Phuket.
+			</p>
+		</section>
+
+		{/* Author Box */}
+		<div class="bg-gray-50 -mx-6 px-6 py-12 rounded-3xl border border-gray-100">
+			<AuthorBox 
+				name="Gemini Phuket" 
+				bio="A long-time resident and travel journalist dedicated to helping travelers discover the authentic side of Thailand's most famous island. From street food to secret sunsets." 
+				avatarUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+				knowsAbout={["Phuket Travel", "Thai Cuisine", "Sustainable Tourism"]}
+				socialLinks={[
+					{ platform: "Instagram", url: "https://instagram.com/phuketexplorer" },
+					{ platform: "Twitter", url: "https://twitter.com/phuketexplorer" }
+				]}
+			/>
+		</div>
+
+		{/* CTA */}
+		<section class="text-center py-12">
+			<h3 class="text-2xl font-bold mb-6">Ready to see the real Phuket?</h3>
+			<div class="flex justify-center gap-4">
+				<a href="/blog" class="bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all">
+					Start Reading
+				</a>
+				<a href="/" class="border border-gray-200 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all">
+					Find Your Beach
+				</a>
+			</div>
+		</section>
+	</div>
+</BaseLayout>

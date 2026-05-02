@@ -14,7 +14,7 @@
    14   build:
    15     runs-on: ubuntu-latest
    16     steps:
-   17       - name: Checkout your repository using git
+   17       - name: Checkout
    18         uses: actions/checkout@v4
    19       - name: Install, build, and upload your site
    20         uses: withastro/action@v3
@@ -26,6 +26,3 @@
    26       name: github-pages
    27       url: ${{ steps.deployment.outputs.page_url }}
    28     steps:
-   29       - name: Deploy to GitHub Pages
-   30         id: deployment
-   31         uses: actions/deploy-pages@v4

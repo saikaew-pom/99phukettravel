@@ -7,11 +7,13 @@ interface Props {
 	maxWidth?: string;
 }
 
-const { 
-	title, 
+const {
+	title,
 	description = "A minimalist blog built with Astro, React, and Tailwind CSS.",
 	maxWidth = "max-w-4xl"
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -19,7 +21,7 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 		<meta name="generator" content={Astro.generator} />
 		{title && !Astro.slots.has('head') && <title>{title}</title>}
 		{description && !Astro.slots.has('head') && <meta name="description" content={description} />}
@@ -28,12 +30,12 @@ const {
 	<body class="bg-white text-gray-900 font-sans antialiased flex flex-col min-h-screen">
 		<header class="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
 			<nav class={`mx-auto px-6 h-16 flex items-center justify-between ${maxWidth}`}>
-				<a href="/" class="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity">
+				<a href={base} class="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity">
 					99event.co
 				</a>
 				<div class="flex items-center gap-8 text-sm font-medium">
-					<a href="/blog" class="text-gray-600 hover:text-black transition-colors">Blog</a>
-					<a href="/about" class="text-gray-600 hover:text-black transition-colors">About</a>
+					<a href={`${base}blog`} class="text-gray-600 hover:text-black transition-colors">Blog</a>
+					<a href={`${base}about`} class="text-gray-600 hover:text-black transition-colors">About</a>
 					<button class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition-colors">
 						Subscribe
 					</button>
@@ -48,7 +50,7 @@ const {
 		<footer class="border-t border-gray-100 py-12 text-center">
 			<div class={`mx-auto px-6 ${maxWidth}`}>
 				<p class="text-sm text-gray-500 font-medium">
-					&copy; {new Date().getFullYear()} 99event.co. Built with 
+					&copy; {new Date().getFullYear()} 99event.co. Built with
 					<a href="https://astro.build" class="underline underline-offset-4 hover:text-black">Astro</a>.
 				</p>
 				<div class="mt-6 flex justify-center gap-6">

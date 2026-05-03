@@ -15,6 +15,8 @@ interface Props {
 
 const { title, description, pubDate, heroImage, author = "Gemini Phuket", headings } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 // Filter headings to show only H2 for the ToC
 const tocHeadings = headings.filter(h => h.depth === 2);
 
@@ -30,7 +32,7 @@ const relatedPosts = allPosts
 ---
 
 <BaseLayout title={title} description={description} maxWidth="max-w-7xl">
-	<SEOhead 
+	<SEOhead
 		slot="head"
 		title={`${title} | 99event.co`}
 		description={description}
@@ -59,7 +61,7 @@ const relatedPosts = allPosts
 				{title}
 			</h1>
 		</div>
-		
+
 		{heroImage && (
 			<div class="rounded-3xl overflow-hidden aspect-[21/9] shadow-2xl bg-gray-100 mt-8">
 				<img src={heroImage} alt={title} class="w-full h-full object-cover" />
@@ -69,7 +71,7 @@ const relatedPosts = allPosts
 
 	{/* Main Content & Sidebar */}
 	<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 pb-24">
-		
+
 		{/* Left Column: Content */}
 		<main class="lg:col-span-8">
 			<article class="prose prose-lg prose-blue max-w-none prose-headings:scroll-mt-24">
@@ -84,7 +86,7 @@ const relatedPosts = allPosts
 					<h3 class="text-2xl font-bold mb-8">Continue Exploring</h3>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 						{relatedPosts.map((post) => (
-							<a href={`/blog/${post.id}`} class="group cursor-pointer">
+							<a href={`${base}blog/${post.id}`} class="group cursor-pointer">
 								<div class="aspect-video bg-gray-100 rounded-2xl mb-4 overflow-hidden shadow-sm group-hover:shadow-md transition-all">
 									<img src={post.data.heroImage} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
 								</div>
@@ -110,7 +112,7 @@ const relatedPosts = allPosts
 						<h4 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Table of Contents</h4>
 						<nav class="flex flex-col gap-4">
 							{tocHeadings.map(heading => (
-								<a 
+								<a
 									href={`#${heading.slug}`}
 									class="text-sm font-medium text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all"
 								>

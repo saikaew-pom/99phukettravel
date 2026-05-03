@@ -7,28 +7,30 @@ import AuthorBox from '../components/AuthorBox';
 const title = "Discover the Real Phuket | 99event.co";
 const description = "Your ultimate guide to the hidden gems, pristine beaches, and local culture of Phuket, Thailand.";
 const canonicalUrl = "https://99event.co";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={title} description={description} maxWidth="max-w-7xl">
-	<SEOhead 
-		slot="head" 
-		title={title} 
-		description={description} 
-		canonicalUrl={canonicalUrl} 
+	<SEOhead
+		slot="head"
+		title={title}
+		description={description}
+		canonicalUrl={canonicalUrl}
 		type="website"
 	/>
 
 	{/* Hero Section */}
 	<section class="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden rounded-3xl mt-4">
 		<div class="absolute inset-0 z-0">
-			<img 
-				src="/images/homepage-header.png" 
-				alt="Stunning Phuket Beach" 
+			<img
+				src={`${base}images/homepage-header.png`}
+				alt="Stunning Phuket Beach"
 				class="w-full h-full object-cover"
 			/>
 			<div class="absolute inset-0 bg-black/30 backdrop-blur-[2px]"></div>
 		</div>
-		
+
 		<div class="relative z-10 text-center px-6 max-w-3xl">
 			<h1 class="text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
 				Discover the <span class="italic font-serif">Real</span> Phuket
@@ -40,7 +42,7 @@ const canonicalUrl = "https://99event.co";
 				<a href="#explore" class="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95">
 					Start Exploring
 				</a>
-				<a href="/blog" class="bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/30 transition-all">
+				<a href={`${base}blog`} class="bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/30 transition-all">
 					Read the Guides
 				</a>
 			</div>
@@ -59,18 +61,18 @@ const canonicalUrl = "https://99event.co";
 				<h2 class="text-3xl font-bold tracking-tight">Recent Travel Guides</h2>
 				<p class="text-gray-500 mt-2">Expert advice for your next Thai adventure.</p>
 			</div>
-			<a href="/blog" class="hidden sm:block text-sm font-bold uppercase tracking-widest text-black hover:opacity-60 transition-opacity">
+			<a href={`${base}blog`} class="hidden sm:block text-sm font-bold uppercase tracking-widest text-black hover:opacity-60 transition-opacity">
 				View All &rarr;
 			</a>
 		</div>
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 			{[
-				{ title: "The Ultimate Patong Beach Guide", img: "/images/beach-patong.png", category: "Beach Guide", slug: "patong-beach-guide" },
+				{ title: "The Ultimate Patong Beach Guide", img: `${base}images/beach-patong.png`, category: "Beach Guide", slug: "patong-beach-guide" },
 				{ title: "How Much Does Phuket Cost in 2026?", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=600", category: "Budgeting", slug: "phuket-cost-guide-2026" },
 				{ title: "Phuket Entry Guide 2026", img: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&q=80&w=600", category: "Travel Tips", slug: "phuket-entry-guide-2026" }
 			].map((post) => (
-				<a href={`/blog/${post.slug}`} class="group cursor-pointer">
+				<a href={`${base}blog/${post.slug}`} class="group cursor-pointer">
 					<div class="overflow-hidden rounded-2xl mb-4 bg-gray-100 aspect-video">
 						<img src={post.img} alt={post.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
 					</div>
@@ -91,9 +93,9 @@ const canonicalUrl = "https://99event.co";
 				We don't just visit Phuket; we live here. Every recommendation is hand-picked and personally verified.
 			</p>
 		</div>
-		<AuthorBox 
-			name="Gemini Phuket" 
-			bio="A long-time resident and travel journalist dedicated to helping travelers discover the authentic side of Thailand's most famous island. From street food to secret sunsets." 
+		<AuthorBox
+			name="Gemini Phuket"
+			bio="A long-time resident and travel journalist dedicated to helping travelers discover the authentic side of Thailand's most famous island. From street food to secret sunsets."
 			avatarUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
 			knowsAbout={["Phuket Travel", "Thai Cuisine", "Sustainable Tourism"]}
 			socialLinks={[

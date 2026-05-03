@@ -18,6 +18,8 @@ interface Props {
   posts: BlogPost[];
 }
 
+const base = import.meta.env.BASE_URL;
+
 const BlogArchive: React.FC<Props> = ({ posts }) => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
@@ -84,7 +86,7 @@ const BlogArchive: React.FC<Props> = ({ posts }) => {
                 transition={{ duration: 0.4 }}
                 className="group"
               >
-                <a href={`/blog/${post.slug}`} className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+                <a href={`${base}blog/${post.slug}`} className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
                   <div className="md:col-span-1 overflow-hidden rounded-2xl bg-gray-100 aspect-video md:aspect-[4/3]">
                     {post.data.heroImage && (
                       <img
